@@ -1,0 +1,80 @@
+<!-- views/postfix.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Postfix Expression Evaluator</title>
+  <!-- Inline CSS for styling the page -->
+  <style>
+    body {
+      background-color: #f9f9f9; /* Light grey background for a clean look */
+      display: flex;
+      justify-content: center; /* Center the container horizontally */
+      align-items: center; /* Center the container vertically */
+      height: 100vh; /* Full viewport height */
+      margin: 0; /* Remove default margin */
+      font-family: Arial, sans-serif; /* Use Arial font */
+    }
+    .container {
+      max-width: 600px; /* Limit the container width */
+      padding: 2em; /* Add padding inside the container */
+      background-color: #fff; /* White background for contrast */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    }
+    h2 {
+      text-align: center; /* Center the heading text */
+      color: #333; /* Dark grey color for readability */
+    }
+    form {
+      display: flex;
+      flex-direction: column; /* Arrange form elements vertically */
+      gap: 1em; /* Space between form elements */
+    }
+    label {
+      font-weight: bold; /* Bold labels for emphasis */
+    }
+    input[type="text"] {
+      padding: 0.5em; /* Padding inside text inputs */
+      border: 1px solid #ccc; /* Light grey border */
+      border-radius: 4px; /* Rounded corners */
+    }
+    button {
+      background-color: #007bff; /* Blue background color */
+      color: white; /* White text color */
+      border: none; /* Remove default border */
+      padding: 0.75em; /* Padding inside the button */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+    button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+    h3 {
+      text-align: center; /* Center the result text */
+      color: #333; /* Dark grey color for readability */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Postfix Expression Evaluator</h2>
+    <!-- Form for inputting variables and postfix expression -->
+    <form action="/evaluate" method="POST">
+      <label for="variables">Variables (e.g., a1=,b1=):</label>
+      <input type="text" id="variables" name="variables" required> <!-- Input for variables -->
+
+      <label for="expression">Postfix Expression (e.g., a b *):</label>
+      <input type="text" id="expression" name="expression" required> <!-- Input for postfix expression -->
+
+      <button type="submit">Evaluate</button> <!-- Submit button -->
+    </form>
+
+    <!-- Display the result if available -->
+    <% if (typeof result !== 'undefined') { %>
+      <h3>Result: <%= result %></h3>
+    <% } %>
+  </div>
+</body>
+</html>
